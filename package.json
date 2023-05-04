@@ -27,5 +27,10 @@
 		"typescript": "^5.0.0",
 		"vite": "^4.3.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@fontsource/gilda-display": "^4.5.10",
+		"@fontsource/inter": "^4.5.15",
+		"@rodneylab/svelte-social-icons": "^0.0.25"
+	}
 }

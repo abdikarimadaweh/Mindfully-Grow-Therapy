@@ -9,22 +9,22 @@
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="/">Starting Therapy</a>
+                <a href="/startingTherapy">Starting Therapy</a>
             </li>
             <li>
-                <a href="/">About Me</a>
+                <a href="/aboutMe">About Me</a>
             </li>
             <li>
-                <a href="/">Qualifications</a>
+                <a href="/qualifications">Qualifications</a>
             </li>
             <li>
-                <a href="/">Resources</a>
+                <a href="/resources">Resources</a>
             </li>
             <li>
-                <a href="/">Contact</a>
+                <a href="/contact">Contact</a>
             </li>
             <li>
-                <a href="/">Book</a>
+                <a href="/book">Book</a>
             </li>
         </ul>
     </nav>
@@ -43,10 +43,6 @@
         font-size: 16px;
 
     }
-    nav {
-        display: flex;
-        justify-content: center;
-    }
     ul {
         display: flex;
         justify-content: center;
@@ -55,18 +51,19 @@
     }
     li {
         display: flex;
+        justify-content: center;
         margin: 0 30px 0 30px;
         border-radius: 5px;
         width: 120px;
-        height: 50px;
+        height: 42px;
         background-color: #5b7792;
         text-align: center;
         padding: 0 10px 0 10px;
     }
     li a {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         text-decoration: none;
         color: #f4f4f4;
     }
