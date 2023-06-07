@@ -1,3 +1,8 @@
+<script>
+    import '@fontsource-variable/arimo';
+    import "@fontsource/gilda-display"
+</script>
+
 <header>
     <div class="helpBanner">
         <p><strong><u>This is not a crisis service.</u></strong> If you are in <u>crisis</u> please call 911 or the Toronto Distress Line (416-408-4357) or<br> 
@@ -37,10 +42,11 @@
         flex-direction: column;
     }
     .helpBanner {
-        padding: 2px 0 2px 0;
         background-color: #ffe2e2;
         text-align: center;
         font-size: 16px;
+        width: 100%;
+        font-family: 'Arimo Variable', sans-serif;
 
     }
     ul {
@@ -54,7 +60,7 @@
         justify-content: center;
         margin: 0 30px 0 30px;
         border-radius: 5px;
-        width: 120px;
+        width: 130px;
         height: 42px;
         background-color: #5b7792;
         text-align: center;
@@ -66,6 +72,7 @@
         justify-content: center;
         text-decoration: none;
         color: #f4f4f4;
+        font-family: "Gilda Display", serif;
     }
 
 </style>
