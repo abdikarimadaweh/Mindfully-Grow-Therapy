@@ -77,12 +77,14 @@
         font-size: 40px;
         font-weight: 300;
         margin-bottom: 0;
+        color: #4d4b44;
     }
 
     .aboutMe_info_name h3 {
         font-family: "Gilda Display", serif;
         font-size: 20px;
         font-weight: 300;
+        color: #4d4b44;
     }
     .aboutMe_details {
         max-width: 400px;
@@ -92,11 +94,13 @@
         font-family: "Gilda Display", serif;
         font-size: 40px;
         font-weight: 300;
+        color: #4d4b44;
 
     }
     .aboutMe_details p {
         font-family: "Inter", sans-serif;
         font-size: 16px ;
+        color: #4d4b44;
     }
 
     .aboutMe_info_socials {

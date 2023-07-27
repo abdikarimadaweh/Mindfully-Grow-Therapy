@@ -34,6 +34,11 @@
 		"@fontsource-variable/open-sans": "^5.0.1",
 		"@fontsource/gilda-display": "^4.5.10",
 		"@fontsource/inter": "^4.5.15",
-		"@rodneylab/svelte-social-icons": "^0.0.25"
+		"@rodneylab/svelte-social-icons": "^0.0.25",
+		"express": "^4.18.2",
+		"flatpickr": "^4.6.13",
+		"jquery": "^3.7.0",
+		"square": "^28.0.0",
+		"svelte-flatpickr": "^3.3.2"
 	}
 }

@@ -29,7 +29,7 @@
                 <a href="/contact">Contact</a>
             </li>
             <li>
-                <a href="/book">Book</a>
+                <a href="/book/services">Book</a>
             </li>
         </ul>
     </nav>

@@ -72,7 +72,6 @@
 
 <style>
     .headerSection{
-        height: 100vh;
     }
 
     .headerImg {
@@ -80,7 +79,7 @@
         margin: auto;
         width: 100%;
         height: auto;
-        max-width: 800px;
+        max-width: 600px;
 
     }
     .positiveSpace {
