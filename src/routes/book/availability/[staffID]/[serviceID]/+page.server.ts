@@ -1,8 +1,8 @@
 import { catalogApi, locationsApi, bookingsApi, teamApi } from '../../../page.server';
 import SQUARE_LOCATION_ID from '$env/static/private';
-import { getStartAtDate, getEndAtDate } from '../../../../../util/date-helper';
+import { getStartAtDate, getEndAtDate } from '../../../../../util/funtion-helper';
 
-export async function load({ params }) {
+export async function load({ params, url }) {
 	//@ts-ignore
 	const locationId = 'L7KYHVRCWWQHB';
 	const ANY_STAFF_PARAMS = 'anyStaffMember';
@@ -59,6 +59,7 @@ export async function load({ params }) {
 
 	const serviceID = params.serviceID;
 	const staffID = params.staffID;
+	const serviceVersion = url.searchParams.get('version');
 	const startDate = getStartAtDate();
 
 	const searchRequest = {
@@ -109,13 +110,15 @@ export async function load({ params }) {
 	const {
 		result: { location }
 	} = await locationsApi.retrieveLocation(locationId);
-	console.log(location);
+	//console.log(availabilities);
 	//console.log(items);
+	console.log(availabilities);
 
 	return {
 		location,
 		availabilities,
 		serviceID,
+		serviceVersion,
 		...additionalInfo
 	};
 }

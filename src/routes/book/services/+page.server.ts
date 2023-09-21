@@ -15,7 +15,7 @@ export async function load() {
 	const {
 		result: { location }
 	} = await locationsApi.retrieveLocation(locationId);
-	console.log(location);
+	//console.log(location);
 	//console.log(items);
 
 	return {

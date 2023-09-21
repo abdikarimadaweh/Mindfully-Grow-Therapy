@@ -1,9 +1,16 @@
-class DatePickerHandler {
-	private availabilityMap: { [key: string]: any[] };
-	private serviceId: string;
-	private serviceVersion: string;
-	private bookingId: string;
-
+export class DatePickerHandler {
+	availabilityMap: {};
+	serviceId: string;
+	serviceVersion: string;
+	bookingId: string;
+	/**
+	 * Constructor for DatePickerHandler
+	 * @param {Availability[]} availabilities
+	 * @param {String} serviceId
+	 * @param {String} serviceVersion
+	 * @param {String} bookingId - booking id if rescheduling an existing booking. Else undefined
+	 * @param {String} businessTimeZone - the business IANA time zone
+	 */
 	constructor(
 		availabilities: [],
 		serviceId: string,
@@ -15,19 +22,19 @@ class DatePickerHandler {
 		this.serviceId = serviceId;
 		this.serviceVersion = serviceVersion;
 		this.bookingId = bookingId;
+		// show the available times for today's date
 		const now = new Date();
 		this.selectNewDate(
 			new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().split('T')[0]
 		);
 	}
 
-	private createDateAvailableTimesMap(
-		availabilities: [],
-		businessTimeZone: string
-	): { [key: string]: any[] } {
-		const dateAvailableTimesMap: { [key: string]: any[] } = {};
-		availabilities.forEach((availability) => {
+	createDateAvailableTimesMap(availabilities: any, businessTimeZone: string) {
+		const dateAvailableTimesMap = {};
+		availabilities.forEach((availability: any) => {
+			// get start date
 			const startAtDate = new Date(availability.startAt);
+			// convert dates to the business time zone
 			const businessTime = new Date(
 				startAtDate.toLocaleString('en-US', { timeZone: businessTimeZone })
 			);
@@ -35,8 +42,9 @@ class DatePickerHandler {
 			const date = ('0' + businessTime.getDate()).slice(-2);
 			const startDate = `${businessTime.getFullYear()}-${month}-${date}`;
 			const availableTimes = dateAvailableTimesMap[startDate] || [];
+			// add the available times as a value to the date
 			availableTimes.push({
-				date: availability.startAt,
+				date: availability.startAt, // keep date in same RFC 3339 format so it can be used in createBooking
 				teamMemberId: availability.appointmentSegments[0].teamMemberId,
 				time: this.formatToAmPm(businessTime)
 			});
@@ -45,7 +53,12 @@ class DatePickerHandler {
 		return dateAvailableTimesMap;
 	}
 
-	private formatToAmPm(date: Date): string {
+	/**
+	 * Reformat time to 12 hour am/pm format
+	 * @param {Date} date in business's time zone
+	 * @return {String} time in 12 hour format with am/pm
+	 */
+	formatToAmPm(date) {
 		let hours = date.getHours();
 		let minutes = date.getMinutes();
 		hours = hours % 12 ? hours % 12 : 12;
@@ -53,11 +66,18 @@ class DatePickerHandler {
 		return `${hours}:${minutes} ${date.getHours() >= 12 ? 'pm' : 'am'}`;
 	}
 
-	public selectNewDate(date: string): void {
+	/**
+	 * Handler for when a date is selected on the datepicker widget
+	 * Show the available times for that date
+	 * @param {String} date ie. 2021-10-30
+	 */
+	selectNewDate(date) {
 		const availableTimesDiv = document.getElementById('available-times');
+		// clear available times and reset it to the new available times for the date
 		availableTimesDiv.innerHTML = '';
-		const availabilities = this.availabilityMap[date];
-		if (!availabilities) {
+		const availabities = this.availabilityMap[date];
+		if (!availabities) {
+			// no available times for the date
 			const noTimesAvailable = document.createElement('p');
 			noTimesAvailable.className = 'no-times-available-msg';
 			noTimesAvailable.innerHTML =
@@ -65,12 +85,15 @@ class DatePickerHandler {
 			availableTimesDiv.appendChild(noTimesAvailable);
 			return;
 		}
-		availabilities.forEach((availability) => {
+		// for each available time create a new element that directs user to the next step in booking
+		// or reschedules the booking if it's an existing booking
+		availabities.forEach((availability) => {
 			const form = document.createElement('form');
 			form.action = this.bookingId
 				? `/booking/${this.bookingId}/reschedule?startAt=${availability.date}`
 				: '/contact';
 			form.method = this.bookingId ? 'post' : 'get';
+			// create hidden parameters for GET contact action
 			if (form.method === 'get') {
 				const queryParams = {
 					serviceId: this.serviceId,
@@ -95,7 +118,12 @@ class DatePickerHandler {
 		});
 	}
 
-	private formatDate(date: string): string {
+	/**
+	 * Format date to yyyy-mm-dd format
+	 * @param {String} date
+	 * @returns {String}
+	 */
+	formatDate(date) {
 		const d = new Date(date);
 		let month = '' + (d.getMonth() + 1);
 		let day = '' + d.getDate();
@@ -111,12 +139,18 @@ class DatePickerHandler {
 		return [year, month, day].join('-');
 	}
 
-	public isSelectable(date: string): [boolean] {
+	/**
+	 * Determines whether a date is selectable or not
+	 * @param {String} date
+	 * @returns {Boolean[]} where first item indicates whether the date is selectable
+	 */
+	isSelectable(date) {
 		const now = new Date();
 		const today = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
 			.toISOString()
 			.split('T')[0];
 		const formattedDate = this.formatDate(date);
+		// let date be selectable if there's availabilities for the date or if the date is today
 		return [this.availabilityMap[formattedDate] || formattedDate === today];
 	}
 }

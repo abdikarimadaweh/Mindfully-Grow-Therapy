@@ -2,10 +2,10 @@ import { catalogApi, bookingsApi, teamApi, locationsApi } from '../../page.serve
 import SQUARE_LOCATION_ID from '$env/static/private';
 import type { PageServerLoad } from './$types';
 
-export async function load({ params }) {
+export async function load({ params, url }) {
 	const locationId = 'L7KYHVRCWWQHB';
 	const serviceId = params.staff;
-	console.log(serviceId);
+	const serviceVersion = url.searchParams.get('version');
 
 	const retrieveServicePromise = catalogApi.retrieveCatalogObject(serviceId, true);
 
@@ -62,6 +62,7 @@ export async function load({ params }) {
 		serviceItem,
 		serviceVariation,
 		serviceId,
+		serviceVersion,
 		location
 	};
 }

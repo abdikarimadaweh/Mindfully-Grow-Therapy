@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
   import '../../style.css';
+  import backArrow from "../../../../img/back-arrow.svg"
+  import sideCaretSelected from "../../../../img/side-caret-selected.svg"
+  import iconPlus from "../../../../img/plus.svg"
+	import { formatTime, getStaffInitials } from '../../../../util/funtion-helper';
   
   export let data: any;
 
@@ -11,56 +15,6 @@
     console.log("hello")
   })
 
-  function formatTime(durationInMs: any) {
-
-    const duration = Number(durationInMs);
-  const minutes = Math.floor(duration / (1000 * 60) % 60);
-  const hours = Math.floor(duration / (1000 * 60 * 60) % 24);
-
-  let msg = [];
-  if (hours > 0) {
-    msg.push(hours);
-    msg.push((hours > 1) ? "hours" : "hour");
-  }
-
-  if (minutes > 0) {
-    msg.push(minutes);
-    msg.push((minutes > 1) ? "mins" : "min");
-  }
-
-  if (msg.length > 0) {
-    return msg.join(" ");
-  } else {
-    return "Unknown duration"
-  }
-
-  }
-
-  function formatMoney(value: any, currency: any) {
-    let valueAsNumber = Number(value);
-  // Create number formatter.
-    const props = {
-        style: 'currency',
-        currency: currency,
-        minimumFractionDigits: 2
-    };
-  // If the value is an integer, show no decimal digits.
-    if (valueAsNumber % 1 == 0) {
-        props.minimumFractionDigits = 0;
-    }
-  
-  // Some currencies don't need to use higher denominations to represent values.
-    if (currency !== "JPY") {
-        valueAsNumber /= 100.0;
-    }
-    const formatter = new Intl.NumberFormat('en-US', props);
-    return formatter.format(valueAsNumber);
-    
-  }
-
-  function getStaffInitials(displayName: any) {
-  return displayName.toUpperCase()[0];
-}
 
 </script>
 
@@ -86,7 +40,7 @@
 
   <div class="content">
     <div class="content-left">
-      <a class="button" href="/book/services"><span class="icon back-arrow"></span> Back</a>
+      <a class="button" href="/book/services"><img src={backArrow} alt="Back Arrow"> Back</a>
       <div class="steps">
         <div class="steps__step">
           <div class="steps__step-wrapper">
@@ -108,7 +62,7 @@
           <div class="steps__step-wrapper">
             <div class="steps__step-title">
               <span>Select staff</span>
-              <span class="icon side-caret-selected"></span>
+              <img src={sideCaretSelected} alt="side-caret-selected">
             </div>
           </div>
         </div>
@@ -162,7 +116,7 @@
                   </div>
                 </div>
               </div>
-              <span class="icon plus"></span>
+              <img src={iconPlus} alt="Plus Icon">
             </div>
           </a>
         {/if}
@@ -185,7 +139,7 @@
                   <div class="staff__card-description">{staff.description || "No description."}</div>
                 </div>
               </div>
-              <span class="icon plus"></span>
+              <img src={iconPlus} alt="Plus Icon">
             </div>
           </a>
         {/each}

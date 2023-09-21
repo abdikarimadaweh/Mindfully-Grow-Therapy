@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
   import '../style.css';
   import  sideCart  from "../../../img/side-caret.svg"
+	import { formatMoney, formatTime } from '../../../util/funtion-helper';
   
   export let data: any;
 
@@ -13,52 +14,7 @@
     console.log(data.location.logoUrl)
   })
 
-  function formatTime(durationInMs: any) {
 
-    const duration = Number(durationInMs);
-  const minutes = Math.floor(duration / (1000 * 60) % 60);
-  const hours = Math.floor(duration / (1000 * 60 * 60) % 24);
-
-  let msg = [];
-  if (hours > 0) {
-    msg.push(hours);
-    msg.push((hours > 1) ? "hours" : "hour");
-  }
-
-  if (minutes > 0) {
-    msg.push(minutes);
-    msg.push((minutes > 1) ? "mins" : "min");
-  }
-
-  if (msg.length > 0) {
-    return msg.join(" ");
-  } else {
-    return "Unknown duration"
-  }
-
-  }
-
-  function formatMoney(value: any, currency: any) {
-    let valueAsNumber = Number(value);
-  // Create number formatter.
-  const props = {
-    style: 'currency',
-    currency: currency,
-    minimumFractionDigits: 2
-  };
-  // If the value is an integer, show no decimal digits.
-  if (valueAsNumber % 1 == 0) {
-    props.minimumFractionDigits = 0;
-  }
-  
-  // Some currencies don't need to use higher denominations to represent values.
-  if (currency !== "JPY") {
-    valueAsNumber /= 100.0;
-  }
-  const formatter = new Intl.NumberFormat('en-US', props);
-  return formatter.format(valueAsNumber);
-    
-  }
 
 </script>
 
