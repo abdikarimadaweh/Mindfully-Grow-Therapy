@@ -3,7 +3,7 @@ import { bookingsApi, catalogApi, locationsApi, customersApi } from '../../book/
 import { convertMsToMins } from '../../../util/funtion-helper';
 import { v4 as uuidv4 } from 'uuid';
 
-export async function POST(request: any, URL: any) {
+export async function POST({ request, url }) {
 	async function getCustomerID(givenName: string, familyName: string, emailAddress: string) {
 		const {
 			result: { customers }
@@ -43,62 +43,57 @@ export async function POST(request: any, URL: any) {
 	}
 
 	const locationId = 'L7KYHVRCWWQHB';
-	/*
-	
+
 	const serviceId = url.searchParams.get('serviceId') as string;
 	const staffId = url.searchParams.get('staffId') as string;
-	const serviceVersion = url.searchParams.get('version') as string;
+	const serviceVariationVersion = BigInt(url.searchParams.get('version') as string);
 	const startAt = url.searchParams.get('startAt') as string;
-   */
 
-	//const formData = await createFormData(request);
+	const formData = await request.formData();
 
-	const data = await request.formData();
+	const customerNote = formData.get('customerNotes') as string;
+	const emailAddress = formData.get('emailAddress') as string;
+	const familyName = formData.get('familyName') as string;
+	const givenName = formData.get('givenName') as string;
+	try {
+		const {
+			result: { object: catalogItemVariation }
+		} = await catalogApi.retrieveCatalogObject(serviceId);
 
-	const { serviceId, staffId, serviceVariationVersion, startAt } = request.params;
-	console.log(data);
+		const durationMinutes = convertMsToMins(
+			catalogItemVariation?.itemVariationData?.serviceDuration
+		);
 
-	const customerNote = request.body.customerNote;
-	const emailAddress = request.body.emailAddress;
-	const familyName = request.body.familyName;
-	const givenName = request.body.givenName;
+		// Create booking
+		const {
+			result: { booking }
+		} = await bookingsApi.createBooking({
+			booking: {
+				appointmentSegments: [
+					{
+						durationMinutes,
+						serviceVariationId: serviceId,
+						serviceVariationVersion,
+						teamMemberId: staffId
+					}
+				],
+				customerId: await getCustomerID(givenName, familyName, emailAddress),
+				customerNote,
+				locationId,
+				startAt
+			},
+			idempotencyKey: uuidv4()
+		});
 
-	console.log(serviceId);
+		const {
+			result: { location }
+		} = await locationsApi.retrieveLocation(locationId);
 
-	const {
-		result: { object: catalogItemVariation }
-	} = await catalogApi.retrieveCatalogObject(serviceId);
-	//@ts-ignore
-	const durationMinutes = convertMsToMins(catalogItemVariation.itemVariationData.serviceDuration);
-
-	// Create booking
-	const {
-		result: { booking }
-	} = await bookingsApi.createBooking({
-		booking: {
-			appointmentSegments: [
-				{
-					durationMinutes,
-					serviceVariationId: serviceId,
-					serviceVariationVersion,
-					teamMemberId: staffId
-				}
-			],
-			customerId: await getCustomerID(givenName, familyName, emailAddress),
-			customerNote,
-			locationId,
-			startAt
-		},
-		idempotencyKey: uuidv4()
-	});
-
-	const {
-		result: { location }
-	} = await locationsApi.retrieveLocation(locationId);
-	console.log(location);
-	//console.log(items);
-
-	return redirect(300, `/book/confirmation/${booking?.id}`);
+		//Response.redirect(`/book/confirmation/${booking?.id}`);
+		return new Response(JSON.stringify(booking));
+	} catch (error) {
+		console.error(error);
+	}
 }
 
 /*

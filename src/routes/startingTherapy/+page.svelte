@@ -3,7 +3,7 @@
     import SocialIcons from '@rodneylab/svelte-social-icons';
     import "@fontsource/gilda-display"
     import "@fontsource/inter"
-    import Blue from "../../img/Blue_Lotus.png"
+    import Blue from "../../img/Blue_Lotus_Blue.png"
 </script>
 
 <div class="aboutMe">
@@ -33,7 +33,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-
+        background-color: #c2d0dd;
         padding: 40px 0 40px 0;
 
     }

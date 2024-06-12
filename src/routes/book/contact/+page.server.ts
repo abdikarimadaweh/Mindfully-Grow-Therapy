@@ -2,18 +2,27 @@ import { catalogApi, locationsApi, bookingsApi } from '../page.server';
 import SQUARE_LOCATION_ID from '$env/static/private';
 import { json } from '@sveltejs/kit';
 
+let shouldRunLoadFunction = true;
+
 export const actions = {
-	create: async ({ cookies, request }) => {
+	create: async ({ cookies, request, url }) => {
 		const data = await request.formData();
 		const emailAddress = data.get('emailAddress');
 		const familyName = data.get('givenName');
 		const givenName = data.get('familyName');
 		const customerNote = data.get('customerNote');
-		console.log(await json(request.body));
+		//const serviceVersion = url.searchParams.get('serviceVersion') as string;
+		//console.log(serviceVersion);
+		console.log(data);
+
+		//shouldRunLoadFunction = false;
 	}
 };
 
 export async function load({ params, url }) {
+	if (!shouldRunLoadFunction) {
+		return;
+	}
 	console.log('Hello');
 	const serviceId = url.searchParams.get('serviceId') as string;
 	const staffId = url.searchParams.get('staff') as string;
