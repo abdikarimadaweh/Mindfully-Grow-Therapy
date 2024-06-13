@@ -67,7 +67,6 @@
         display: flex;
         flex-direction: column;
         padding: 20px 50px 20px 50px;
-        background-color: #f4f4f4;
     }
     .footer_psyToday{
         display: flex;
@@ -120,5 +119,6 @@
         width: 100%;
         height: auto;
         max-width: 200px;
+        margin-bottom: 20px;
     }
 </style>

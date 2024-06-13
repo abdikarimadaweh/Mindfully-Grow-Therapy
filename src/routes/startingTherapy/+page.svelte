@@ -80,7 +80,6 @@
         color: #4d4b44;
     }
     .aboutMe_details_image {
-        margin: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -93,6 +92,7 @@
         max-width: 250px;
         object-fit: cover;
         object-position: center top;
+
 
     }
 </style>
