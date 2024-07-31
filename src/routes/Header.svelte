@@ -29,7 +29,7 @@
                 <a href="/contact">Contact</a>
             </li>
             <li>
-                <a href="/book/services">Book</a>
+                <a href="https://book.squareup.com/appointments/dthttv7mhfv5tw/location/L7KYHVRCWWQHB/services?buttonTextColor=ffffff&color=4058c5&locale=en&referrer=so">Book</a>
             </li>
         </ul>
     </nav>
@@ -49,19 +49,26 @@
         font-family: 'Arimo Variable', sans-serif;
 
     }
-    ul {
+    nav {
         display: flex;
         justify-content: center;
         align-items: center;
-        list-style: none;
+        background-color: #f4f4f4;
+        padding: 10px 0 10px 0;
+    }
+    ul {
+        padding: 0;
+    margin: 0;
+    display: flex; 
+    list-style: none;  
     }
     li {
         display: flex;
         justify-content: center;
-        margin: 0 30px 0 30px;
+        margin: 0 25px 0 25px;
         border-radius: 5px;
-        width: 130px;
-        height: 42px;
+        width: 90px;
+        height: 35px;
         background-color: #5b7792;
         text-align: center;
         padding: 0 10px 0 10px;
@@ -73,6 +80,53 @@
         text-decoration: none;
         color: #f4f4f4;
         font-family: "Gilda Display", serif;
+        font-size: 14px;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        ul {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        ul.active {
+            display: flex;
+        }
+
+        li {
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        .helpBanner {
+            font-size: 14px;
+            padding: 10px 5px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .helpBanner {
+            font-size: 12px;
+        }
+
+        li {
+            height: auto;
+            padding: 10px 0;
+        }
+
+        li a {
+            padding: 10px;
+        }
     }
 
 </style>

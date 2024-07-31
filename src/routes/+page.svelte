@@ -72,6 +72,7 @@
 
 <style>
     .headerSection{
+    
     }
 
     .headerImg {
@@ -170,7 +171,7 @@
     }
 
     .contactInput {
-        outline: 2px solid transparent;
+    outline: 2px solid transparent;
     outline-offset: 2px;
     border-radius: 5px;
     border-width: 1px;
@@ -178,12 +179,11 @@
     padding: 15px 10px 15px 10px;
     background-color: transparent;
     border-color: #4d4b44;
-    width: 400px;
-
+    width: 100%;
 
     }
     .contactInputM {
-    width: 400px;
+    width: 100%;
     }
 
     .contactInput:hover,
@@ -197,7 +197,7 @@
         align-items: center;
         border-radius: 5px;
         border-width: 1px;
-        width: 200px;
+        width: 100%;
         height: 35px;
         background-color: #f4f4f4;
         font-size: 15px;
@@ -208,6 +208,57 @@
         font-family: 'Open Sans Variable', sans-serif;
         font-size: 13px;
         color: #4d4b44;
+    }
+
+    @media (max-width: 768px) {
+        .positiveSpace {
+            flex-direction: column;
+        }
+
+        .positiveSpace_img {
+            margin-bottom: 20px;
+            margin-right: 0px ;
+            width: auto;
+        }
+
+        .positiveSpaceInfo_title h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .positiveSpaceInfo_details p {
+            font-size: 16px;
+        }
+
+        .contactUs_info h2 {
+            font-size: 25px;
+        }
+
+        .contactUs_info p {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .positiveSpaceInfo_title h1 {
+            font-size: 1.5rem;
+        }
+
+        .positiveSpaceInfo_details p {
+            font-size: 14px;
+        }
+
+        .contactUs_info h2 {
+            font-size: 20px;
+        }
+
+        .contactUs_info p {
+            font-size: 14px;
+        }
+
+        .submitBtn {
+            width: 100%;
+        }
     }
 
 </style>

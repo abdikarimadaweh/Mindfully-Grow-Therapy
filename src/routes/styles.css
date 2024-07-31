@@ -1,4 +1,10 @@
+@font-face {
+	font-family: 'Billion Miracles';
+	src: url('C:/Users/abdik/Desktop/MindFull Growth Therapy/MindFully_Grow_Therapy/fonts');
+}
+
 body {
 	background-color: #f4f4f4;
 	margin: auto;
+	font-family: 'Billion Miracles', sans-serif;
 }
