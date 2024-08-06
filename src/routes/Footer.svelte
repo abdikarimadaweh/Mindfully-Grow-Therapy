@@ -17,7 +17,7 @@
     <div class="footer_logo">
         <img class="logoImg" src={header}  alt="temp" />
     </div>
-
+    
     <div class="footer_links">
         <div class="footer_links_pages">
             <ul>
@@ -58,7 +58,7 @@
         <Icon style="margin: 0px 8px 0px 8px;" icon="logos:discover" />
     </div>
     <div class="footer_copyright">
-        <p>© 2023</p>
+        <p>© 2024</p>
     </div>
 </div>
 
@@ -121,6 +121,12 @@
         max-width: 200px;
         margin-bottom: 20px;
     }
+    .footer_copyright p {
+        font-family: "inter", serif;
+        font-weight: 300;
+        font-size: 15px;
+        margin-bottom: 0;
+    }
     @media (max-width: 768px) {
         .footer_links {
             flex-direction: column;
@@ -146,7 +152,7 @@
 
     @media (max-width: 480px) {
         .footer_paymentOptions {
-            flex-direction: column;
+            flex-direction: row;
         }
 
         .footer_paymentOptions > * {
@@ -160,11 +166,20 @@
         .footer_links_pages ul {
             flex-direction: column;
             align-items: center;
+            padding: 0;
+            margin-bottom: 15px;
         }
 
         li {
             width: auto;
             margin-bottom: 10px;
+        }
+
+        .footer_logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     }
 </style>

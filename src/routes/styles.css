@@ -5,6 +5,9 @@
 
 body {
 	background-color: #f4f4f4;
-	margin: auto;
+	margin: 0;
+	padding: 0;
+	width: 100%;
 	font-family: 'Billion Miracles', sans-serif;
+	position: relative;
 }

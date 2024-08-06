@@ -33,7 +33,7 @@
     </div>
 
 </section>
-<section>
+<section class="contactUsSection">
 <div class="contactUs">
     <div class="contactUs_info">
         <h2>Contact Us</h2>
@@ -72,7 +72,8 @@
 
 <style>
     .headerSection{
-    
+        width: 100%;
+
     }
 
     .headerImg {
@@ -127,14 +128,17 @@
         color: #4d4b44;
         margin-bottom: 10px;
     }
+
+    .contactUsSection{
+        background-color: #c2d0dd;
+    }
     .contactUs {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center;;
         margin: 20px 0 20px 0;
-        padding: 50px 0 50px 0;
-        background-color: #c2d0dd;
+        padding: 50px 15px 50px 15px;
     }
     .contactUs_info {
         display: flex;
@@ -176,7 +180,7 @@
     border-radius: 5px;
     border-width: 1px;
     margin-bottom: 13px;
-    padding: 15px 10px 15px 10px;
+    padding: 10px 10px 10px 10px;
     background-color: transparent;
     border-color: #4d4b44;
     width: 100%;
@@ -240,6 +244,17 @@
     }
 
     @media (max-width: 480px) {
+
+        .positiveSpaceInfo {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .positiveSpaceInfo_details {
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
         .positiveSpaceInfo_title h1 {
             font-size: 1.5rem;
         }

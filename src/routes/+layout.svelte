@@ -30,7 +30,7 @@
 <div class="app">
 	<Header />
 
-	<main>
+	<main style="width: 100%">
 		<slot />
 	</main>
 
