@@ -67,6 +67,7 @@
         display: flex;
         flex-direction: column;
         padding: 20px 50px 20px 50px;
+        background-color: #f4f4f4;
     }
     .footer_psyToday{
         display: flex;
