@@ -215,7 +215,7 @@
         margin: 0 25px 0 25px;
         border-radius: 5px;
         width: 90px;
-        height: 35px;
+        height: 40px;
         background-color: #5b7792;
         text-align: center;
         padding: 0 10px 0 10px;
