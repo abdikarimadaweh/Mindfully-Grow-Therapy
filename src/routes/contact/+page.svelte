@@ -232,18 +232,28 @@
     }
 
     .submitBtn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 5px;
-        border-width: 1px;
-        width: 100%;
-        height: 35px;
-        background-color: #f4f4f4;
-        font-size: 15px;
-        font-family: 'Open Sans Variable', sans-serif;
-        margin-top: 10px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #4d4b44;
+    background-color: #4d4b44; 
+    color: #fff; 
+    font-size: 16px;
+    font-family: 'Open Sans Variable', sans-serif;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+    max-width: 200px; /* Optional: limit the width */
+    margin-top: 20px;
+}
+
+.submitBtn:hover {
+    background-color: #f4f4f4;
+    color: #4d4b44; 
+    border-color: #4d4b44;
+}
 
     form p {
         font-family: 'Open Sans Variable', sans-serif;
