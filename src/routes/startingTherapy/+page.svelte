@@ -151,9 +151,5 @@
             font-size: 14px;
         }
 
-        .aboutMe_info_image img,
-        .aboutMe_details_image img {
-            max-width: 100%;
-        }
     }
 </style>
