@@ -90,7 +90,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 50px 0 100px 0;
+        margin: 50px 20px;
+        text-align: center;
     }
 
     .contact_intro h1 {
@@ -98,9 +99,7 @@
         color: #4d4b44;
         font-family: "Gilda Display", serif;
         font-size: 45px;
-        margin: 0 0 50px 0;
-
-        
+        margin: 0 0 20px 0;
     }
 
     .contact_intro p { 
@@ -108,79 +107,78 @@
         font-size: 20px;
         font-weight: 300;
         color: #4d4b44;
-
+        max-width: 100%;
     }
+
     .contact h3 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
         font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 300;
     }
+
     .contact_insurance {
         display: flex;
         flex-direction: column;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
+        padding: 0 20px;
     }
 
     .contact_insurance h1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
         font-weight: 300;
         color: #4d4b44;
         font-family: "Gilda Display", serif;
-        font-size: 50px;
-        margin: 100px 0 80px 0;
+        font-size: 35px;
+        margin: 50px 0 40px 0;
     }
+
     .contact_insurance_box {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
+        gap: 20px;
     }
 
-    .contact_insurance_1 {
+    .contact_insurance_1, .contact_insurance_2 {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
-        margin-right: 250px;
+        align-items: center;
+        gap: 15px;
     }
 
-    .contact_insurance_2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
     .contact_insurance_image{
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 20px;
     }
+
     .contact_insurance_image img {
         width: 100%;
-        height: auto;
         max-height: 270px;
         max-width: 250px;
         object-fit: cover;
-        object-position: center top;
     }
+
     .contactUs {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center;;
         margin: 20px 0 20px 0;
-        padding: 50px 0 50px 0;
+        padding: 50px 15px 50px 15px;
         background-color: #c2d0dd;
     }
+
     .contactUs_info {
         display: flex;
         flex-direction: column;
         margin-bottom: 25px;
     }
+
     .contactUs_info h2 {
         display: flex;
         justify-content: center;
@@ -189,6 +187,7 @@
         font-weight: 700;
         font-size: 30px;
     }
+
     .contactUs_info p {
         display: flex;
         justify-content: center;
@@ -201,6 +200,7 @@
         height: auto;
         max-width: 500px;
     }
+
     form {
         display: flex;
         flex-direction: column;
@@ -216,15 +216,14 @@
     border-radius: 5px;
     border-width: 1px;
     margin-bottom: 13px;
-    padding: 15px 10px 15px 10px;
+    padding: 10px 10px 10px 10px;
     background-color: transparent;
     border-color: #4d4b44;
-    width: 400px;
-
-
+    width: 100%;
     }
+
     .contactInputM {
-    width: 400px;
+        width: 100%;
     }
 
     .contactInput:hover,
@@ -238,16 +237,66 @@
         align-items: center;
         border-radius: 5px;
         border-width: 1px;
-        width: 200px;
+        width: 100%;
         height: 35px;
         background-color: #f4f4f4;
         font-size: 15px;
         font-family: 'Open Sans Variable', sans-serif;
         margin-top: 10px;
     }
+
     form p {
         font-family: 'Open Sans Variable', sans-serif;
         font-size: 13px;
         color: #4d4b44;
+    }
+
+    /* Responsive Media Queries */
+    @media (min-width: 768px) {
+        .contact_intro h1 {
+            font-size: 50px;
+        }
+
+        .contact_intro p {
+            font-size: 22px;
+            max-width: 700px;
+        }
+
+        .contact_insurance_box {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .contact_insurance_1, .contact_insurance_2 {
+            align-items: flex-start;
+        }
+
+    
+
+        
+
+        .contactUs_info h2 {
+            font-size: 25px;
+        }
+
+        .contactUs_info p {
+            font-size: 16px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .contact_intro h1 {
+            font-size: 60px;
+        }
+
+        .contact_intro p {
+            font-size: 24px;
+            max-width: 800px;
+        }
+
+        .contactUs_info h2 {
+            font-size: 32px;
+        }
     }
 </style>
