@@ -94,8 +94,8 @@
     .aboutMe_details_image img {
         width: 100%;
         height: auto;
-        max-height: 270px;
-        max-width: 250px;
+        max-height: 250px;
+        max-width: 230px;
         object-fit: cover;
         object-position: center top;
     }
