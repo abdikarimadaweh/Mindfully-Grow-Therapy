@@ -62,14 +62,17 @@
 		align-items: center;
 		padding: 40px 20px;
 		box-sizing: border-box;
+		max-width: 1200px;
+		margin: 0 auto;
 	}
 
 	.qualifications h1 {
 		font-family: 'Gilda Display', serif;
-		font-size: 40px;
+		font-size: 58px;
 		font-weight: 300;
 		color: #4d4b44;
 		margin-bottom: 40px;
+		text-align: center;
 	}
 
 	.qualifications_bigBox {
@@ -84,6 +87,7 @@
 		display: grid;
 		grid-template-columns: 300px 1fr;
 		gap: 20px;
+		padding: 20px;
 	}
 
 	.qualifications_box_title {
@@ -107,44 +111,6 @@
 		font-size: 18px;
 		color: #4d4b44;
 		margin: 0;
-	}
-	.qualifications {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 20px;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	.qualifications h1 {
-		font-family: 'Gilda Display', serif;
-		font-size: 58px;
-		font-weight: 300;
-		color: #4d4b44;
-		margin-bottom: 40px;
-		text-align: center;
-	}
-
-	.qualifications_bigBox {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-	}
-
-	.qualifications_box {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-bottom: 30px;
-		padding: 20px;
-	}
-
-	.qualifications_box_details p {
-		font-family: 'Inter', sans-serif;
-		font-size: 16px;
-		color: #4d4b44;
-		text-align: center;
 		line-height: 1.5;
 		max-width: 800px;
 	}
