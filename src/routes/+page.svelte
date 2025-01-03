@@ -76,26 +76,30 @@
 	.headerSection {
 		width: 100%;
 		margin-bottom: 100px;
+		position: relative;
 	}
 	.headerTitle {
 		position: relative;
 		font-family: 'BillionMiracles', serif;
-		font-size: 107px;
+		font-size: 130px;
 		color: #5b7794;
 		text-align: center;
 		font-weight: 100;
-		margin: 0;
+		margin: -110px 0 0 0;
 	}
 
 	.headerTitle2 {
 		position: relative;
 		font-family: 'cinzel', serif;
-		font-size: 56px;
+		font-size: 80px;
 		color: #5b7794;
 		text-align: center;
 		font-weight: 100;
-		margin: 0;
+		margin: -20px 0 0 0;
 		letter-spacing: 0.5rem;
+	}
+	.headerTitle2::first-letter {
+		font-size: 70px;
 	}
 
 	.headerImg {
@@ -103,7 +107,7 @@
 		margin: auto;
 		width: 100%;
 		height: auto;
-		max-width: 400px;
+		max-width: 500px;
 	}
 	.positiveSpace {
 		width: 100%;
@@ -243,8 +247,32 @@
 	}
 
 	@media (max-width: 768px) {
+		.headerSection {
+        margin-bottom: 60px;
+    }
+
+    .headerTitle {
+        font-size: 90px;
+        margin: -80px 0 0 0;
+    }
+
+    .headerTitle2 {
+        font-size: 60px;
+        margin: -15px 0 0 0;
+        letter-spacing: 0.3rem;
+    }
+
+    .headerImg {
+        max-width: 400px;
+    }
 		.positiveSpace {
 			flex-direction: column;
+		}
+		.positiveSpaceInfo {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 		}
 
 		.positiveSpace_img {
@@ -255,6 +283,11 @@
 
 		.positiveSpaceInfo_title h1 {
 			font-size: 2rem;
+			text-align: center;
+		}
+		.positiveSpaceInfo_details {
+			padding: 0;
+			width: auto;
 			text-align: center;
 		}
 
@@ -272,6 +305,24 @@
 	}
 
 	@media (max-width: 480px) {
+		.headerSection {
+			margin-bottom: 40px;
+    	}
+
+    	.headerTitle {
+			font-size: 60px;
+        	margin: -50px 0 0 0;
+    	}
+
+   		.headerTitle2 {
+			font-size: 40px;
+        	margin: -10px 0 0 0;
+        	letter-spacing: 0.2rem;
+    	}
+
+    	.headerImg {
+        	max-width: 300px;
+    	}
 		.positiveSpaceInfo {
 			justify-content: center;
 			align-items: center;

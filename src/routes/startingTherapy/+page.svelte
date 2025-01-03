@@ -67,20 +67,22 @@
         justify-content: center;
         align-items: flex-start;
         max-width: 600px;
+        position: relative;
     }
 
     .aboutMe_details h1 {
         font-family: "Gilda Display", serif;
-        font-size: 40px;
+        font-size: 45px;
         font-weight: 300;
         color: #4d4b44;
-        margin-bottom: 20px;
     }
 
     .aboutMe_details p {
         font-family: "Inter", sans-serif;
         font-size: 18px;
         color: #4d4b44;
+        margin: 0 0 -80px 0;
+        z-index: 2;
     }
 
     .aboutMe_details_image {
@@ -88,7 +90,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 20px;
+        margin-left: 30px;
     }
 
     .aboutMe_details_image img {
@@ -98,6 +100,7 @@
         max-width: 230px;
         object-fit: cover;
         object-position: center top;
+        z-index: 1;
     }
 
     /* Media Queries for Responsiveness */
@@ -142,14 +145,5 @@
         }
     }
 
-    @media (max-width: 480px) {
-        .aboutMe_details h1 {
-            font-size: 28px;
-        }
 
-        .aboutMe_details p {
-            font-size: 14px;
-        }
-
-    }
 </style>

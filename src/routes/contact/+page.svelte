@@ -1,5 +1,5 @@
 <script>
-    import Blue from "../../img/Blue_Lotus.png"
+    import Blue from "../../img/Blue_Lotus_Blue.png"
 </script>
 
 
@@ -120,7 +120,6 @@
     .contact_insurance {
         display: flex;
         flex-direction: column;
-        margin-bottom: 50px;
         padding: 0 20px;
     }
 
@@ -131,6 +130,12 @@
         font-family: "Gilda Display", serif;
         font-size: 35px;
         margin: 50px 0 40px 0;
+    }
+    .contact_insurance h3 {
+        color: #4d4b44;
+        font-size: 20px;
+        font-weight: 300;
+        font-family: "Inter", sans-serif;
     }
 
     .contact_insurance_box {
@@ -274,7 +279,7 @@
 
         .contact_insurance_box {
             flex-direction: row;
-            justify-content: space-between;
+            align-items: flex-start;
             gap: 50px;
         }
 

@@ -171,17 +171,15 @@
     }
 
     .resources_box_info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 30px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background-color: #f9f9f9;
-        width: 100%;
-        max-width: 800px;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+    min-height: 120px; /* Add this to ensure consistent height */
+    justify-content: space-between; /* Add this to create space between title and details */
+}
 
     .resources_box_info_title {
         margin-bottom: 10px;
@@ -191,9 +189,15 @@
     .resources_box_info_title h2 {
         font-family: "Inter", sans-serif;
         font-size: 20px;
-        font-weight: 300;
         color: #4d4b44;
+        line-height: 1.5;
+        margin: 0;
     }
+    .resources_box_info_details {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
 
     .resources_box_info_details p {
         font-family: "Inter", sans-serif;
@@ -201,31 +205,35 @@
         font-weight: 300;
         color: #4d4b44;
         line-height: 1.5;
+        margin: 0;
     }
 
     @media (min-width: 768px) {
         .resources_box_info {
-            flex-direction: row;
-            justify-content: space-between;
-        }
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start; /* Add this to align items at the top */
+    }
+    
+    .resources_box_info_title {
+        margin-right: 20px;
+        width: 40%; /* Add fixed width for title section */
+    }
 
-        .resources_box_info_title {
-            margin-right: 20px;
-            width: auto;
-        }
-
-        .resources_box_info_details p {
-            text-align: left;
-        }
+    .resources_box_info_details {
+        width: 60%; /* Add fixed width for details section */
+    }
     }
 
     @media (min-width: 1200px) {
         .resources_box_info_title h2 {
             font-size: 22px;
+            margin: 20px 0 20px 0;
         }
 
         .resources_box_info_details p {
-            font-size: 18px;
+            font-size: 22px;
+            margin: 20px 0 20px 0;
         }
     }
 </style>

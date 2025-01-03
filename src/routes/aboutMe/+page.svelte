@@ -79,7 +79,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-bottom: 40px;
+		margin: 40px 0 40px 0;
 	}
 
 	.aboutMe_info_image img {
@@ -103,10 +103,11 @@
 
 	.aboutMe_info_name h3 {
 		font-family: 'Gilda Display', serif;
-		font-size: 18px;
+		font-size: 20px;
 		font-weight: 300;
 		color: #4d4b44;
 		text-align: center;
+		margin-top: 10px;
 	}
 
 	.aboutMe_info_socials {
@@ -129,6 +130,7 @@
 		font-size: 42px;
 		font-weight: 300;
 		color: #4d4b44;
+		margin: 0 0 0.67em 0 
 	}
 
 	.aboutMe_details p {

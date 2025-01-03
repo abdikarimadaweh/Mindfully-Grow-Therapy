@@ -137,6 +137,7 @@
 		font-family: 'Arimo Variable', sans-serif;
 		line-height: 1.4;
 		font-weight: 300;
+		color: #4d4b44;
 	}
 
 	#mobileHamburger {

@@ -6,7 +6,7 @@
 	import { page } from '$app/stores';
 
 	const updateBackgroundColor = (path) => {
-		if (path === '/startingTherapy' || path === '/qualifications') {
+		if (path === '/startingTherapy' || path === '/qualifications' || path === '/contact') {
 			document.body.style.backgroundColor = '#c2d0dd';
 		} else {
 			document.body.style.backgroundColor = '#f4f4f4';
