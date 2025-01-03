@@ -121,6 +121,7 @@
         display: flex;
         flex-direction: column;
         padding: 0 20px;
+        align-items: center;
     }
 
     .contact_insurance h1 {
@@ -128,8 +129,8 @@
         font-weight: 300;
         color: #4d4b44;
         font-family: "Gilda Display", serif;
-        font-size: 35px;
         margin: 50px 0 40px 0;
+        font-size: 45px;
     }
     .contact_insurance h3 {
         color: #4d4b44;
@@ -144,6 +145,8 @@
         justify-content: center;
         align-items: center;
         gap: 20px;
+        align-self: flex-start; 
+        width: 100%; 
     }
 
     .contact_insurance_1, .contact_insurance_2 {
